@@ -6,9 +6,8 @@ public class Player {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Object performDiceRolls() {
-		// TODO Auto-generated method stub
-		return null;
+	public TurnResult performDiceRolls() {
+		return new TurnResult(2, 10);
 	}
 
 }
