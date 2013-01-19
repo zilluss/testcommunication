@@ -1,16 +1,17 @@
 package com.schneide.kniffel;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class SimpleDiceThrowDecider {
 
 	private static final int MAXIMUM_PIPS_ON_A_DICE = 6;
 	private static final int TWO_PIPS = 2;
-	private List<Integer> thrownDice;
+	private Collection<Integer> thrownDice;
 
-	public SimpleDiceThrowDecider(List<Integer> thrownDice) {
-		this.thrownDice = thrownDice;
+	public SimpleDiceThrowDecider(Collection<Integer> diceThrow) {
+		this.thrownDice = diceThrow;
 	}
 
 	public int getCategory() {
