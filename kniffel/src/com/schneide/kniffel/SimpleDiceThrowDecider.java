@@ -1,5 +1,6 @@
 package com.schneide.kniffel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SimpleDiceThrowDecider {
@@ -21,18 +22,26 @@ public class SimpleDiceThrowDecider {
 	}
 
 	private int getMostSuitable(int candidateForCategory, int pips) {
-		if(occurrenceOf(pips) >= occurrenceOf(candidateForCategory)) {
+		if(countOfDiceWith(pips) >= countOfDiceWith(candidateForCategory)) {
 			return pips;
 		}
 		return candidateForCategory;
 	}
 
-	private int occurrenceOf(int pips) {
+	private int countOfDiceWith(int pips) {
 		return new DiceCounter(thrownDice).getCountOf(pips);
 	}
 
 	public List<Integer> fixedDice() {
-		return null;
+		List<Integer> fixedDice = new ArrayList<Integer>();
+		for(int diceToFix = 0; diceToFix < countOfDiceOfCategory(); diceToFix++){
+			fixedDice.add(this.getCategory());
+		}
+		return fixedDice;
+	}
+
+	private int countOfDiceOfCategory() {
+		return countOfDiceWith(getCategory());
 	}
 
 }
