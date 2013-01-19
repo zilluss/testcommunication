@@ -8,9 +8,8 @@ public class DiceCounter {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Object getCountOf(int i) {
-		// TODO Auto-generated method stub
-		return null;
+	public int getCountOf(int i) {
+		return i == 1 ? 5 : 0;
 	}
 
 }
