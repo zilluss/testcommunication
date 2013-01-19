@@ -22,7 +22,6 @@ public class DiceThrower {
 
 	private void throwADiceAndAddItTo(Collection<Integer> thrownDice) {
 		int randomDiceThrow = (int)Math.floor((Math.random() * 6d) + 1d);
-		System.out.println(randomDiceThrow);
 		thrownDice.add(randomDiceThrow);
 	}
 
