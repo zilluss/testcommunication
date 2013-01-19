@@ -4,17 +4,28 @@ import java.util.List;
 
 public class SimpleDiceThrowDecider {
 
-	public SimpleDiceThrowDecider(List<Integer> asList) {
-		// TODO Auto-generated constructor stub
+	private static final int MAXIMUM_PIPS_ON_A_DICE = 6;
+	private static final int MINIMUM_PIPS_ON_A_DICE = 1;
+	private List<Integer> thrownDice;
+
+	public SimpleDiceThrowDecider(List<Integer> thrownDice) {
+		this.thrownDice = thrownDice;
 	}
 
-	public Object getCategory() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getCategory() {
+		for(int pip = MINIMUM_PIPS_ON_A_DICE; pip <= MAXIMUM_PIPS_ON_A_DICE; pip++){
+			if(allDiceHaveTheSame(pip)){
+				return pip;
+			}
+		}
+		return 0;
 	}
 
-	public Object fixedDice() {
-		// TODO Auto-generated method stub
+	private boolean allDiceHaveTheSame(int pip) {
+		return new DiceCounter(thrownDice).getCountOf(pip) == DiceThrower.ALL_DICE;
+	}
+
+	public List<Integer> fixedDice() {
 		return null;
 	}
 
