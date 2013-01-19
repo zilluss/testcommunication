@@ -4,12 +4,20 @@ import java.util.List;
 
 public class DiceCounter {
 
-	public DiceCounter(List<Integer> asList) {
-		// TODO Auto-generated constructor stub
+	private List<Integer> listOfDice;
+
+	public DiceCounter(List<Integer> listOfDice) {
+		this.listOfDice = listOfDice;
 	}
 
-	public int getCountOf(int i) {
-		return i == 1 ? 5 : 0;
+	public int getCountOf(int expectedDiceSide) {
+		int diceWithExpectedDiceSide = 0;
+		for(int thrownDiceSide : listOfDice){
+			if(thrownDiceSide == expectedDiceSide){
+				diceWithExpectedDiceSide += 1;
+			}
+		}
+		return diceWithExpectedDiceSide;
 	}
 
 }
