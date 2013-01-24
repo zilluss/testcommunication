@@ -1,6 +1,8 @@
 package com.schneide.poker;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Hand {
@@ -16,7 +18,22 @@ public class Hand {
 	}
 	
 	private Hand (List<Card> cardsInHand) {
-		this.cards = cardsInHand;
+		this.cards = sorted(cardsInHand);
+	}
+
+	private List<Card> sorted(List<Card> cardsInHand) {
+		Collections.sort(cardsInHand, sortByCardValue());
+		return cardsInHand;
+	}
+
+	private Comparator<Card> sortByCardValue() {
+		return new Comparator<Card>() {
+
+			@Override
+			public int compare(Card o1, Card o2) {
+				return o1.compareTo(o2.getValue());
+			}
+		};
 	}
 
 	public String representation() {
