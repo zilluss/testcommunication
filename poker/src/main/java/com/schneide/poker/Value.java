@@ -4,18 +4,98 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Value {
-	
-	_2, _3, _4, _5, _6, _7, _8, _9, _10, JACK, QUEEN, KING, ACE;
+
+	_2 {
+		@Override
+		public String representation() {
+			return "2";
+		}
+	},
+	_3 {
+		@Override
+		public String representation() {
+			return "3";
+		}
+	},
+	_4 {
+		@Override
+		public String representation() {
+			return "4";
+		}
+	},
+	_5 {
+		@Override
+		public String representation() {
+			return "5";
+		}
+	},
+	_6 {
+		@Override
+		public String representation() {
+			return "6";
+		}
+	},
+	_7 {
+		@Override
+		public String representation() {
+			return "7";
+		}
+	},
+	_8 {
+		@Override
+		public String representation() {
+			return "8";
+		}
+	},
+	_9 {
+		@Override
+		public String representation() {
+			return "9";
+		}
+	},
+	_10 {
+		@Override
+		public String representation() {
+			return "T";
+		}
+	},
+	JACK {
+		@Override
+		public String representation() {
+			return "J";
+		}
+	},
+	QUEEN {
+		@Override
+		public String representation() {
+			return "Q";
+		}
+	},
+	KING {
+		@Override
+		public String representation() {
+			return "K";
+		}
+	},
+	ACE {
+		@Override
+		public String representation() {
+			return "A";
+		}
+	};
 
 	public static Value forSymbol(String symbol) {
-		if(!stringValueMapping.containsKey(symbol)) {
-			throw new IllegalArgumentException("Could not parse " + symbol + " to Value");
+		if (!stringValueMapping.containsKey(symbol)) {
+			throw new IllegalArgumentException("Could not parse " + symbol
+					+ " to Value");
 		}
 		return stringValueMapping.get(symbol);
 	}
+
+	public abstract String representation();
+
 	private static Map<String, Value> stringValueMapping = new HashMap<String, Value>();
-	static
-	{
+	static {
 		stringValueMapping.put("2", _2);
 		stringValueMapping.put("3", _3);
 		stringValueMapping.put("4", _4);
@@ -30,5 +110,5 @@ public enum Value {
 		stringValueMapping.put("A", ACE);
 		stringValueMapping.put("K", KING);
 	}
-	
+
 }
