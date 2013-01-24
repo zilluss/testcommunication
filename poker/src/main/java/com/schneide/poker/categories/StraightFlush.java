@@ -4,9 +4,8 @@ import com.schneide.poker.Hand;
 
 public class StraightFlush {
 
-	public boolean matches(Hand from) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean matches(Hand hand) {
+		return hand.hasConsecutiveValues() && hand.hasSameSuit();
 	}
 
 	public int compare(Hand a, Hand b) {
