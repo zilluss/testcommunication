@@ -3,7 +3,10 @@ package com.schneide.poker;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class Hand {
 	private List<Card> cards;
@@ -81,6 +84,30 @@ public class Hand {
 			}
 		}
 		return highestValue;
+	}
+
+	public int highestNumberOfCardsWithTheSameValue() {
+		Map<Value, Integer> countOfValues = countValues();
+		for(Card card : this.cards) {
+			countOfValues.put(card.getValue(), countOfValues.get(card.getValue())+1);
+		}
+		return highest(countOfValues);
+	}
+
+	private int highest(Map<Value, Integer> countOfValues) {
+		int highestCount = 0;
+		for(Integer count : countOfValues.values()){
+			highestCount = count > highestCount ? count : highestCount;
+		}
+		return highestCount;
+	}
+
+	private Map<Value, Integer> countValues() {
+		Map<Value, Integer> countValues = new HashMap<Value, Integer>();
+		for(Value value: Value.values()) {
+			countValues.put(value, 0);
+		}
+		return countValues;
 	}
 
 }
