@@ -59,8 +59,18 @@ public class Hand {
 	}
 
 	public boolean hasConsecutiveValues() {
-		// TODO Auto-generated method stub
-		return false;
+		Card previousCard = firstCard();
+		for(int nextCard = 1; nextCard < cards.size(); nextCard++){
+			Card card = cards.get(nextCard);
+			if(!nextCardsValueIsExcatlyOneHigher(previousCard, card)) return false;
+			previousCard = card;
+		}
+		return true;
+	}
+
+	private boolean nextCardsValueIsExcatlyOneHigher(Card previousCard,
+			Card card) {
+		return previousCard.getValue().ordinal()+1 == card.getValue().ordinal();
 	}
 
 	public Value highestValue() {
