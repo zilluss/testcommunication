@@ -39,8 +39,14 @@ public class Hand {
 	}
 
 	public Value highestValue() {
-		// TODO Auto-generated method stub
-		return null;
+		Value highestValue = Value._2;
+		for(Card card : cards){
+			if(card.compareTo(highestValue) > 0){
+				highestValue = card.getValue();
+			}
+		}
+		return highestValue;
 	}
 
 }
+

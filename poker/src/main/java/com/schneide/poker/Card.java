@@ -1,7 +1,9 @@
 package com.schneide.poker;
 
 public class Card {
-
+	private Value value;
+	private String decoration;
+	
 	public static Card from(String cardRepresentation) {
 		Value value = parseValueFrom(cardRepresentation);
 		String decoration = parseDecorationFrom(cardRepresentation);
@@ -17,9 +19,6 @@ public class Card {
 		return Value.forSymbol(valueRepresentation);
 	}
 
-	private Value value;
-	private String decoration;
-
 	private Card(Value value, String decoration) {
 		this.value = value;
 		this.decoration = decoration;
@@ -27,6 +26,14 @@ public class Card {
 	
 	public String representation() {
 		return value.representation() + decoration;
+	}
+
+	public int compareTo(Value highestCard) {
+		return this.value.compareTo(highestCard);
+	}
+
+	public Value getValue() {
+		return this.value;
 	}
 
 }
