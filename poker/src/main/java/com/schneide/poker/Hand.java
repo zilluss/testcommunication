@@ -46,8 +46,16 @@ public class Hand {
 	}
 
 	public boolean hasSameSuit() {
-		// TODO Auto-generated method stub
-		return false;
+		Card previousCard = firstCard();
+		for(Card card:this.cards) {
+			if(!previousCard.hasSameSuit(card)) return false;
+			previousCard = card;
+		}
+		return true;
+	}
+
+	private Card firstCard() {
+		return this.cards.get(0);
 	}
 
 	public boolean hasConsecutiveValues() {

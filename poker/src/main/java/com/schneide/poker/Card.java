@@ -36,4 +36,8 @@ public class Card {
 		return this.value;
 	}
 
+	public boolean hasSameSuit(Card card) {
+		return card.decoration.equals(this.decoration);
+	}
+
 }
