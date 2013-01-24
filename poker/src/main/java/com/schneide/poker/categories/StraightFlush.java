@@ -9,8 +9,7 @@ public class StraightFlush {
 	}
 
 	public int compare(Hand a, Hand b) {
-		// TODO Auto-generated method stub
-		return 0;
+		return a.highestValue().compareTo(b.highestValue());
 	}
 
 }
